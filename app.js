@@ -10,7 +10,7 @@ const MongoConnect=require('./util/database').MongoConnect
 //=======
 //const sequelize=require('./util/database');
 //const Product=require('./models/product');
-//const User=require('./models/user');
+const User=require('./models/user');
 //const Cart=require('./models/cart');
 //const CartItem=require('./models/cart-item');
 
@@ -32,14 +32,15 @@ const shopRoutes = require('./routes/shop');
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use((req,res,next)=>{
-//User.findByPk(1).then(user=>{
-  //req.user=user;
-  //next();
-//}).catch(err=>{
- // console.log(err);
+User.findById('6421b62f57109624b8f4faeb')
+.then(user=>{
+  req.user=user;
+  next();
+}).catch(err=>{
+  console.log(err);
  next();
 })
-//})
+})
 
 app.use('/admin', adminRoutes);
 app.use(shopRoutes);
