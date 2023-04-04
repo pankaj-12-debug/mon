@@ -1,4 +1,4 @@
-const mongodb=require('mongodb');
+/*const mongodb=require('mongodb');
 const getDb=require('../util/database').getDb;
 const ObjectId=mongodb.ObjectId;
 
@@ -73,4 +73,4 @@ return db.collection('users').updateOne({_id: new ObjectId(this._id)},{$set:{car
     }
   
 }
-module.exports=User;
+module.exports=User;*/
